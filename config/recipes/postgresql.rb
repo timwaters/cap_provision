@@ -6,7 +6,8 @@ set_default(:postgresql_database) { "#{application}_production" }
 namespace :postgresql do
   desc "Install the latest stable release of PostgreSQL."
   task :install, :roles => :db, :only => {:primary => true} do
-    if ['12.10','12.04'].include?(lsb_release)
+  lsb_v = lsb_release
+     if lsb_v  == "12.04" || lsb_v  == "12.10"
       run "#{sudo} add-apt-repository -y ppa:pitti/postgresql"
     else
       run "#{sudo} add-apt-repository ppa:pitti/postgresql"
