@@ -8,16 +8,16 @@ load "config/recipes/nodejs"
 load "config/recipes/rbenv"
 load "config/recipes/check"
 
-server "72.14.183.209", :web, :app, :db, :primary => true
+server "192.168.15.139", :web, :app, :db, :primary => true
 
-set :user, "deployer"
-set :application, "blog"
+set :user, "tim"
+set :application, "cap_provision"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-set :repository, "git@github.com:ryanb/#{application}.git"
+set :repository, "git@github.com:timwaters/#{application}.git"
 set :branch, "master"
 
 default_run_options[:pty] = true
