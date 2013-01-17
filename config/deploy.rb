@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+set :bundle_flags, "--deployment --quiet --binstubs"
 
 load "config/recipes/base"
 load "config/recipes/nginx"
@@ -8,7 +9,7 @@ load "config/recipes/nodejs"
 load "config/recipes/rbenv"
 load "config/recipes/check"
 
-server "192.168.15.139", :web, :app, :db, :primary => true
+server "192.168.15.141", :web, :app, :db, :primary => true
 
 
 
