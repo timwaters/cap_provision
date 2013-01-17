@@ -9,7 +9,7 @@ load "config/recipes/nodejs"
 load "config/recipes/rbenv"
 load "config/recipes/check"
 
-server "192.168.15.141", :web, :app, :db, :primary => true
+server "192.168.15.142", :web, :app, :db, :primary => true
 
 
 

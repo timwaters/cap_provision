@@ -1,7 +1,11 @@
 namespace :nginx do
   desc "Install latest stable release of nginx"
   task :install, :roles => :web do
-    run "#{sudo} add-apt-repository -y ppa:nginx/stable"
+    if ['12.10','12.04'].include?(lsb_release)
+      run "#{sudo} add-apt-repository -y ppa:nginx/stable"
+    else
+      run "#{sudo} add-apt-repository  ppa:nginx/stable"
+    end
     run "#{sudo} apt-get -y update"
     run "#{sudo} apt-get -y install nginx"
   end

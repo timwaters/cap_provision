@@ -7,6 +7,8 @@ def set_default(name, *args, &block)
   set(name, *args, &block) unless exists?(name)
 end
 
+set_default(:lsb_release) { capture "lsb_release -r | cut -f 2" }
+
 namespace :deploy do
   desc "Install everything onto the server"
   task :install do

@@ -17,7 +17,11 @@ BASHRC
     run "mv ~/.bashrc.tmp ~/.bashrc"
     run %q{export PATH="$HOME/.rbenv/bin:$PATH"}
     run %q{eval "$(rbenv init -)"}
-    run "#{sudo} apt-get -y install build-essential zlib1g-dev libssl-dev libreadline-gplv2-dev"
+    if ['12.10','12.04'].include?(lsb_release)
+      run "#{sudo} apt-get -y install build-essential zlib1g-dev libssl-dev libreadline-gplv2-dev"
+    else
+      run "#{sudo} apt-get -y install build-essential zlib1g-dev libssl-dev libreadline5-dev"
+    end
     #run "rbenv #{rbenv_bootstrap}"
     run "rbenv install #{ruby_version}"
     run "rbenv global #{ruby_version}"
