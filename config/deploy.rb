@@ -10,11 +10,17 @@ load "config/recipes/check"
 
 server "192.168.15.139", :web, :app, :db, :primary => true
 
+
+
 set :user, "tim"
 set :application, "cap_provision"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
+
+set :default_environment, {
+  'PATH' => "/home/#{user}/.rbenv/shims:/home/#{user}/.rbenv/bin:$PATH"
+}
 
 set :scm, "git"
 set :repository, "git@github.com:timwaters/#{application}.git"

@@ -32,6 +32,7 @@ gem 'therubyracer'
 
 # Use unicorn as the app server
 gem 'unicorn'
+gem 'rake'
 
 # Deploy with Capistrano
 gem 'capistrano'#
