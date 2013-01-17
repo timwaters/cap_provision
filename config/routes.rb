@@ -1,4 +1,6 @@
 CapProvision::Application.routes.draw do
+  get "urls/new"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
