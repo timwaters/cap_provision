@@ -1,7 +1,9 @@
 namespace :nginx do
   desc "Install latest stable release of nginx"
   task :install, :roles => :web do
-     lsb_v = lsb_release
+     lsb_v = lsb_release.strip!
+     puts lsb_v.inspect
+     puts lsb_v == "12.04"
      if lsb_v  == "12.04" || lsb_v  == "12.10"
       run "#{sudo} add-apt-repository -y ppa:nginx/stable"
     else
