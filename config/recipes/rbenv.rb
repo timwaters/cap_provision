@@ -17,7 +17,8 @@ BASHRC
     run "mv ~/.bashrc.tmp ~/.bashrc"
     run %q{export PATH="$HOME/.rbenv/bin:$PATH"}
     run %q{eval "$(rbenv init -)"}
-    if ['12.10','12.04'].include?(lsb_release)
+    lsb_v = lsb_release.strip
+     if lsb_v  == "12.04" || lsb_v  == "12.10"
       run "#{sudo} apt-get -y install build-essential zlib1g-dev libssl-dev libreadline-gplv2-dev"
     else
       run "#{sudo} apt-get -y install build-essential zlib1g-dev libssl-dev libreadline5-dev"
